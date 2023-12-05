@@ -85,7 +85,7 @@ spec:
         values:
           name: ${{ parameters.name }}
           description: ${{ parameters.description }}
-          system: ${{ parameters.business_unit }}
+          business_unit: ${{ parameters.business_unit }}
           email: ${{ parameters.email }}
 
     # This step publishes the contents of the working directory to GitHub.
