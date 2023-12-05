@@ -87,8 +87,6 @@ spec:
           description: ${{ parameters.description }}
           system: ${{ parameters.business_unit }}
           email: ${{ parameters.email }}
-          type: ${{ type }}
-          lifecycle: ${{ lifecycle }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish

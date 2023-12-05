@@ -6,7 +6,7 @@ metadata:
   description: ${{ values.description | dump }}
   {%- endif %}
 spec:
-  type: ${{ values.type | dump }}
+  type: website
   owner: ${{ values.email | dump }}
   system: ${{ values.business_unit | dump }}
-  lifecycle: ${{ values.lifecycle | dump }}
+  lifecycle: experimental
