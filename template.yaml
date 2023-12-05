@@ -13,6 +13,7 @@ metadata:
 spec:
   owner: user:guest
   type: website
+  lifecycle: production
 
   # These parameters are used to generate the input form in the frontend, and are
   # used to gather input data for the execution of the template.
@@ -20,6 +21,9 @@ spec:
     - title: General Information
       required:
         - name
+        - enterprise_id
+        - business_unit
+        - email
       properties:
         name:
           title: Application Name
@@ -33,16 +37,16 @@ spec:
           ui:autofocus: true
           ui:widget: textarea
           ui:options:
-            rows: 3
+            rows: 2
         enterprise_id:
           title: Enterprise Unified Identification
           type: string
           description: Unique id across all enterprise
           ui:autofocus: true
-        org_element:
-          title: Org Unit
+        business_unit:
+          title: Business Unit Name
           type: string
-          description: Business Unit Name
+          description: Enter business unit you belong to or you create the app in
           enum:
             - DigitalPlatform
             - Bonds
@@ -80,6 +84,11 @@ spec:
         url: ./
         values:
           name: ${{ parameters.name }}
+          description: ${{ parameters.description }}
+          system: ${{ parameters.business_unit }}
+          email: ${{ parameters.email }}
+          type: ${{ type }}
+          lifecycle: ${{ lifecycle }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
@@ -96,7 +105,7 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        catalogInfoPath: 'catalog-info.yaml'
+        catalogInfoPath: '/catalog-info.yaml'
 
   # Outputs are displayed to the user after a successful execution of the template.
   output:
