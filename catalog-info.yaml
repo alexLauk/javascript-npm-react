@@ -9,4 +9,9 @@ spec:
   type: website
   owner: ${{ values.email | dump }}
   system: ${{ values.business_unit | dump }}
-  lifecycle: experimental
+  lifecycle: production
+  tags:
+    - kubernetes
+    - javascript
+    - react
+    - npm
