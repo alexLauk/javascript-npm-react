@@ -35,9 +35,6 @@ spec:
           type: string
           description: Describe the purpose of your application
           ui:autofocus: true
-          ui:widget: textarea
-          ui:options:
-            rows: 2
         enterprise_id:
           title: Enterprise Unified Identification
           type: string
