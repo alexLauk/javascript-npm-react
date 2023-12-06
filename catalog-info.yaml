@@ -5,13 +5,13 @@ metadata:
   {%- if values.description %}
   description: ${{ values.description | dump }}
   {%- endif %}
-spec:
-  type: website
-  owner: ${{ values.email | dump }}
-  system: ${{ values.business_unit | dump }}
-  lifecycle: production
   tags:
     - kubernetes
     - javascript
     - react
     - npm
+spec:
+  type: website
+  owner: ${{ values.email | dump }}
+  system: ${{ values.business_unit | dump }}
+  lifecycle: production
